@@ -8,14 +8,15 @@ public class Chicken : MonoBehaviour
     [SerializeField] Vector3 m_OriginOffset = new Vector3(0,0,0);
 
     //Position of the egg, when picked up by the chicken
-    [SerializeField] Vector3 m_EggPosition = new Vector3(0, 0, 0);
+   // [SerializeField] Vector3 m_EggPosition = new Vector3(0, 0, 0);
 
     //The radius of the sphere cast
     [SerializeField] float m_Radius = 1.0f;
 
     //The distance of the spherecast
     [SerializeField] float m_Distance = 2.0f;
-
+    [SerializeField] KeyCode m_PickupButton = KeyCode.Space;
+    [SerializeField] KeyCode m_AttackButton = KeyCode.Mouse0;
 
     private bool m_HasEgg = false;
     private GameObject m_AttachedEgg = null;
@@ -60,17 +61,17 @@ public class Chicken : MonoBehaviour
         RaycastHit hit;
 
         //If the pickup button is pressed
-        if (Input.GetAxis("Pickup") > 0.0001f)
+        if (Input.GetKeyDown(m_PickupButton))
         {
             //Do a spherecast from the player outwards
-            Physics.SphereCast(transform.position + m_OriginOffset,m_Radius,transform.forward, out hit, m_Distance,0);
+            Physics.SphereCast(transform.position + m_OriginOffset,m_Radius,transform.forward, out hit, m_Distance);
 
-            //Get the gameobject of object hit
-            GameObject other = hit.collider.gameObject;
 
             //If other exists
-            if (other)
+            if (hit.collider)
             {
+            //Get the gameobject of object hit
+            GameObject other = hit.collider.gameObject;
                 //And it is a nest
                 if (other.tag == "Nest")
                 {
@@ -86,11 +87,15 @@ public class Chicken : MonoBehaviour
                     m_AttachedEgg = n.TakeEgg();
                     //--------------------------------------------------------------
 
-                    //Parent the egg to this 
-                    m_AttachedEgg.transform.SetParent(transform);
+                    if(m_AttachedEgg)
+                    {
+                         //Parent the egg to this 
+                         m_AttachedEgg.transform.SetParent(transform);
+                    }
+                    
                     
                     //Move the egg
-                    m_AttachedEgg.transform.position = m_EggPosition;
+                  //  m_AttachedEgg.transform.position = m_EggPosition;
 
                     //Set has egg to true
                     m_HasEgg = true;
@@ -100,5 +105,31 @@ public class Chicken : MonoBehaviour
         }
 
         //---------------------------------------------------------------------------------------------------------------------------
+
+        //Scare
+        //---------------------------------------------------------------------------------------------------------------------------
+        if(Input.GetKeyDown(m_AttackButton))
+        {
+            if (!m_HasEgg)
+            {
+                //Do a spherecast
+                Physics.SphereCast(transform.position + m_OriginOffset, m_Radius, transform.forward, out hit, m_Distance);
+
+                //If the collider exist (meaning it hit something)
+                if (hit.collider)
+                {
+                    GameObject other = hit.collider.gameObject;
+
+                    if (other.tag == "Farmer")
+                    {
+                        //Call Scare function
+                        other.GetComponent<EnemyMovement>().Scare();
+                    }
+
+                }
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------------------
+
     }
 }
