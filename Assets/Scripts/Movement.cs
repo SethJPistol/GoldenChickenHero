@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
 
         //magnitude can't be negative, use 0.0001 to hopefully avoid any floating point error stuff
-        if(direction.magnitude > 0.0001)
+        if(direction.magnitude > 0.0001f)
         {
             m_Rigidbody.AddForce(direction * m_Speed *Time.fixedDeltaTime,m_ForceMode);
             m_Rigidbody.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
