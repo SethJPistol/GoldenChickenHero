@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-	private Transform m_seekTarget;
+	public Transform handPosition;
+
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
 
@@ -34,14 +35,17 @@ public class EnemyMovement : MonoBehaviour
 					Nest closestNest = ClosestNest();
 
 					//If at a nest,
-					if (Vector3.Distance(closestNest.transform.position, transform.position) < 1.0f)
+					if (Vector3.Distance(closestNest.transform.position, transform.position) < 2.0f)
 					{
 						m_egg = closestNest.TakeEgg();
 						if (m_egg != null)
 						{
 							m_agent.SetDestination(FleePosition());
-							//Add egg to hand here
+							m_egg.transform.position = handPosition.position;
+							m_egg.transform.SetParent(handPosition);
 						}
+						else
+							m_agent.SetDestination(closestNest.transform.position);
 					}
 					//If not at a nest
 					else
@@ -65,6 +69,7 @@ public class EnemyMovement : MonoBehaviour
 				//If don't have an egg
 				else
 				{
+					//go on the hunt
 					m_agent.SetDestination(ClosestNest().transform.position);
 				}
 			}
