@@ -26,7 +26,13 @@ public class Nest : MonoBehaviour
 
 	public GameObject TakeEgg()
 	{
-		hasEgg = false;
-		return m_egg;
+		if (hasEgg)
+		{
+			hasEgg = false;
+			GameObject egg = m_egg;
+			m_egg = null;
+			return egg;
+		}
+		return null;
 	}
 }

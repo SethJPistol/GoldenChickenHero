@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
 
+	private GameObject m_egg = null;
+
     void Start()
     {
 		m_agent = GetComponent<NavMeshAgent>();
@@ -23,10 +25,37 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!m_agent.hasPath)
 		{
-			//If not at a nest
-			Nest closestNest = ClosestNest();
-			m_agent.SetDestination(closestNest.transform.position);
-			//If at the nest
+			//If inside the level,
+			if (LevelBounds.InsideLevel(transform.position))
+			{
+				Nest closestNest = ClosestNest();
+
+				//If at a nest,
+				if (Vector3.Distance(closestNest.transform.position, transform.position) < 1.0f)
+				{
+					m_egg = closestNest.TakeEgg();
+					if (m_egg != null)
+						m_agent.SetDestination(FleePosition());
+				}
+				//If not at a nest
+				else
+					m_agent.SetDestination(closestNest.transform.position);
+			}
+			//If outside the level,
+			else
+			{
+				//If have an egg,
+				if (m_egg != null)
+				{
+					//hehehehe stole the egg
+					gameObject.SetActive(false);
+				}
+				//If don't have an egg
+				else
+				{
+					m_agent.SetDestination(ClosestNest().transform.position);
+				}
+			}
 		}
     }
 
@@ -38,21 +67,29 @@ public class EnemyMovement : MonoBehaviour
 
 		foreach (Nest nest in m_nests)
 		{
-			float distance = Vector3.Distance(nest.transform.position, transform.position);
+			if (nest.hasEgg)
+			{
+				float distance = Vector3.Distance(nest.transform.position, transform.position);
 
-			if (first)
-			{
-				closestDistance = distance;
-				closestNest = nest;
-				first = false;
-			}
-			else if (distance < closestDistance)
-			{
-				closestDistance = distance;
-				closestNest = nest;
+				if (first)
+				{
+					closestDistance = distance;
+					closestNest = nest;
+					first = false;
+				}
+				else if (distance < closestDistance)
+				{
+					closestDistance = distance;
+					closestNest = nest;
+				}
 			}
 		}
 
 		return closestNest;
+	}
+	private Vector3 FleePosition()
+	{
+		Vector3 directionFromCenter = transform.position.normalized;
+		return (directionFromCenter * 30);
 	}
 }
