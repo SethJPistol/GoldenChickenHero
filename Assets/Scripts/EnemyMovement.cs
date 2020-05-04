@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 	private Nest[] m_nests;
 
 	private GameObject m_egg = null;
+	private bool m_scared = false;
 
     void Start()
     {
@@ -28,24 +29,35 @@ public class EnemyMovement : MonoBehaviour
 			//If inside the level,
 			if (LevelBounds.InsideLevel(transform.position))
 			{
-				Nest closestNest = ClosestNest();
-
-				//If at a nest,
-				if (Vector3.Distance(closestNest.transform.position, transform.position) < 1.0f)
+				if (!m_scared)
 				{
-					m_egg = closestNest.TakeEgg();
-					if (m_egg != null)
-						m_agent.SetDestination(FleePosition());
+					Nest closestNest = ClosestNest();
+
+					//If at a nest,
+					if (Vector3.Distance(closestNest.transform.position, transform.position) < 1.0f)
+					{
+						m_egg = closestNest.TakeEgg();
+						if (m_egg != null)
+						{
+							m_agent.SetDestination(FleePosition());
+							//Add egg to hand here
+						}
+					}
+					//If not at a nest
+					else
+						m_agent.SetDestination(closestNest.transform.position);
 				}
-				//If not at a nest
-				else
-					m_agent.SetDestination(closestNest.transform.position);
 			}
 			//If outside the level,
 			else
 			{
+				if (m_scared)
+				{
+					//aaaaaa
+					gameObject.SetActive(false);
+				}
 				//If have an egg,
-				if (m_egg != null)
+				else if (m_egg != null)
 				{
 					//hehehehe stole the egg
 					gameObject.SetActive(false);
@@ -58,6 +70,20 @@ public class EnemyMovement : MonoBehaviour
 			}
 		}
     }
+
+	public GameObject Scare()
+	{
+		m_agent.SetDestination(FleePosition());
+		m_scared = true;
+
+		if (m_egg != null)
+		{
+			GameObject egg = m_egg;
+			m_egg = null;
+			return egg;
+		}
+		return null;
+	}
 
 	private Nest ClosestNest()
 	{
