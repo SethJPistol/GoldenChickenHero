@@ -5026,6 +5026,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1351268733}
     m_Modifications:
+    - target: {fileID: 1217725222361060919, guid: d1a0bac65669b8840b489cc86f073eaa,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2100753162763147975, guid: d1a0bac65669b8840b489cc86f073eaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5100,6 +5105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EggTImer_Mesh_Animation Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856892156810846852, guid: d1a0bac65669b8840b489cc86f073eaa,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a0bac65669b8840b489cc86f073eaa, type: 3}

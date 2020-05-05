@@ -87,15 +87,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 70e438a138cf6a3469b7aaaacfdaaf99, type: 2}
+    - target: {fileID: -3982358879387097110, guid: d9c1d4446c383f44c8416d6b1fff56ee,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d9c1d4446c383f44c8416d6b1fff56ee,
         type: 3}
       propertyPath: m_Name
-      value: EggTImer_Mesh_Animation
+      value: EggTImer_Mesh_Animation Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1962107905491096409, guid: d9c1d4446c383f44c8416d6b1fff56ee,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 70e438a138cf6a3469b7aaaacfdaaf99, type: 2}
+    - target: {fileID: 1962107905491096409, guid: d9c1d4446c383f44c8416d6b1fff56ee,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c1d4446c383f44c8416d6b1fff56ee, type: 3}
