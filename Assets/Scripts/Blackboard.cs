@@ -9,6 +9,8 @@ public class Blackboard : MonoBehaviour
     public static Blackboard m_Instance = null;
     [SerializeField] GameObject m_TimerObject;
     [SerializeField] GameObject m_EggCountObject;
+    [SerializeField] GameObject m_EndGameUI;
+    [SerializeField] GameObject m_EndCountText;
     [SerializeField] float m_TimeLeftMinutes = 2;
     float m_TimeLeft = 0;
     float m_Timer = 0;
@@ -25,7 +27,8 @@ public class Blackboard : MonoBehaviour
     }
     void Start()
     {
-        if(m_TimerObject)
+        Time.timeScale = 1;
+        if (m_TimerObject)
         {
           m_TimerText = m_TimerObject.GetComponent<Text>();
         }
@@ -34,6 +37,7 @@ public class Blackboard : MonoBehaviour
            m_CountText = m_EggCountObject.GetComponent<Text>();
         }
         m_TimeLeft = m_TimeLeftMinutes * 60;
+        m_EndGameUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -77,6 +81,14 @@ public class Blackboard : MonoBehaviour
             {
                 m_TimerText.text = minutes + ":" + "0" + seconds;
             }
+        }
+
+        if(m_TimeLeft <= 0)
+        {
+            m_EndGameUI.SetActive(true);
+            Text t = m_EndCountText.GetComponent<Text>();
+            t.text = "Eggs Protected: \r\n" + m_EggCount;
+            Time.timeScale = 0;
         }
     }
 
