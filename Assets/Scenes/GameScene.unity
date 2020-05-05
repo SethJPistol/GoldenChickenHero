@@ -356,8 +356,8 @@ GameObject:
   m_Name: mesh_fence_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &125162411
 Transform:
@@ -755,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224872638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -25.3}
+  m_LocalPosition: {x: -15.5, y: 0, z: -25.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1621328016}
@@ -777,7 +777,7 @@ GameObject:
   m_Name: mesh_flower_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &267126468
@@ -909,8 +909,8 @@ GameObject:
   m_Name: mesh_fence_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &426245529
 Transform:
@@ -1451,7 +1451,7 @@ PrefabInstance:
     - target: {fileID: 2004740789997394960, guid: 8a4e9a30ebd56544886a3a85de89be6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.25
+      value: -11.06
       objectReference: {fileID: 0}
     - target: {fileID: 2004740789997394960, guid: 8a4e9a30ebd56544886a3a85de89be6f,
         type: 3}
@@ -1629,8 +1629,8 @@ GameObject:
   m_Name: mesh_flower_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &647322539
 Transform:
@@ -2318,7 +2318,7 @@ PrefabInstance:
     - target: {fileID: 2004740789997394960, guid: 8a4e9a30ebd56544886a3a85de89be6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.21
+      value: 9.07
       objectReference: {fileID: 0}
     - target: {fileID: 2004740789997394960, guid: 8a4e9a30ebd56544886a3a85de89be6f,
         type: 3}
@@ -2558,6 +2558,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954813859}
   m_Mesh: {fileID: -5597002278806442958, guid: c44d1289c46d14147b8b51ea2a0178e7, type: 3}
+--- !u!1 &980873351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980873352}
+  m_Layer: 0
+  m_Name: Exit1 (1)
+  m_TagString: Exit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &980873352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980873351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.3, y: 0, z: 25.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1621328016}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &994218161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,8 +2658,8 @@ GameObject:
   m_Name: mesh_bush_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1005801103
 Transform:
@@ -3190,8 +3220,8 @@ GameObject:
   m_Name: mesh_fence_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1082352644
 Transform:
@@ -3283,8 +3313,8 @@ GameObject:
   m_Name: mesh_fence_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1084637573
 Transform:
@@ -3595,8 +3625,8 @@ GameObject:
   m_Name: mesh_bush_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1179957496
 Transform:
@@ -3715,8 +3745,8 @@ GameObject:
   m_Name: mesh_fence_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1247582623
 Transform:
@@ -3808,8 +3838,8 @@ GameObject:
   m_Name: mesh_fence_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1263299507
 Transform:
@@ -4060,8 +4090,8 @@ GameObject:
   m_Name: mesh_watertrough_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1306358473
 Transform:
@@ -4731,8 +4761,8 @@ GameObject:
   m_Name: mesh_fence_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1570611979
 Transform:
@@ -4824,8 +4854,8 @@ GameObject:
   m_Name: mesh_wateringcan_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1585532876
 Transform:
@@ -5028,6 +5058,8 @@ Transform:
   m_Children:
   - {fileID: 1879458536}
   - {fileID: 224872639}
+  - {fileID: 980873352}
+  - {fileID: 1752388566}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5047,8 +5079,8 @@ GameObject:
   m_Name: mesh_fence_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1625948475
 Transform:
@@ -5140,8 +5172,8 @@ GameObject:
   m_Name: mesh_fence_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1650145281
 Transform:
@@ -5249,6 +5281,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7383039387096310743}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752388565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752388566}
+  m_Layer: 0
+  m_Name: Exit2 (1)
+  m_TagString: Exit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1752388566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752388565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.3, y: 0, z: -25.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1621328016}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779660099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879458535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 25.18}
+  m_LocalPosition: {x: -5, y: 0, z: 25.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1621328016}
@@ -5751,8 +5813,8 @@ GameObject:
   m_Name: mesh_fence_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1954143367
 Transform:
@@ -6008,8 +6070,8 @@ GameObject:
   m_Name: mesh_flower_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2048467485
 Transform:
@@ -6362,8 +6424,8 @@ GameObject:
   m_Name: mesh_bush_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2099269862
 Transform:
@@ -6645,8 +6707,8 @@ GameObject:
   m_Name: mesh_fence_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2122579667
 Transform:
@@ -6912,8 +6974,8 @@ GameObject:
   m_Name: mesh_flower_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &708900525068774590
 MeshCollider:
@@ -7119,8 +7181,8 @@ GameObject:
   m_Name: mesh_watertrough_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1269137511110354311
 MeshCollider:
@@ -7554,8 +7616,8 @@ GameObject:
   m_Name: mesh_wateringcan_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2386439138621184476
 MeshCollider:
@@ -7663,8 +7725,8 @@ GameObject:
   m_Name: mesh_fence_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2643186003014996409
 MeshCollider:
@@ -7772,8 +7834,8 @@ GameObject:
   m_Name: mesh_bush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2879373340151450642
 MeshCollider:
@@ -8037,8 +8099,8 @@ GameObject:
   m_Name: mesh_flower_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &3970184272594470686
 MeshCollider:
@@ -8148,8 +8210,8 @@ GameObject:
   m_Name: mesh_egg_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &4175586364058477346
 MeshCollider:
@@ -8777,8 +8839,8 @@ GameObject:
   m_Name: mesh_bush_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &7103061000407196668
 MeshCollider:
