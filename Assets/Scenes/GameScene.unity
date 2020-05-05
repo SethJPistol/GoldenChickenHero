@@ -1554,8 +1554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7403ed13b9cf443b6a3e7ee6c8c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Timer: {fileID: 1519967736}
-  m_EggCounter: {fileID: 606684831}
+  m_TimerObject: {fileID: 1519967736}
+  m_EggCountObject: {fileID: 606684831}
+  m_TimeLeftMinutes: 5.5
 --- !u!4 &994218163
 Transform:
   m_ObjectHideFlags: 0
