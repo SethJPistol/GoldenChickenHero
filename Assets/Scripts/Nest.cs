@@ -16,7 +16,7 @@ public class Nest : MonoBehaviour
 		MakeEgg();
 	}
 
-	private void MakeEgg()
+	public void MakeEgg()
 	{
 		hasEgg = true;
 		m_egg = Instantiate(eggPrefab);
