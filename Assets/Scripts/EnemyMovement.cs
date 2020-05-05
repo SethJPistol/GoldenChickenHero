@@ -60,11 +60,11 @@ public class EnemyMovement : MonoBehaviour
 									m_egg.transform.SetParent(handPosition);
 								}
 								else
-									m_agent.SetDestination(closestNest.transform.position);
+									m_agent.SetDestination(NestPosition(closestNest.transform));
 							}
 							//If not at the nest
 							else
-								m_agent.SetDestination(closestNest.transform.position);
+								m_agent.SetDestination(NestPosition(closestNest.transform));
 						}
 						//If the coop is closer,
 						else
@@ -80,11 +80,11 @@ public class EnemyMovement : MonoBehaviour
 									m_egg.transform.SetParent(handPosition);
 								}
 								else
-									m_agent.SetDestination(m_coop.transform.position);
+									m_agent.SetDestination(NestPosition(m_coop.transform));
 							}
 							//If not at the coop,
 							else
-								m_agent.SetDestination(m_coop.transform.position);
+								m_agent.SetDestination(NestPosition(m_coop.transform));
 						}
 					}
 					//If there is no nest with an egg,
@@ -101,11 +101,11 @@ public class EnemyMovement : MonoBehaviour
 								m_egg.transform.SetParent(handPosition);
 							}
 							else
-								m_agent.SetDestination(m_coop.transform.position);
+								m_agent.SetDestination(NestPosition(m_coop.transform));
 						}
 						//If not at the coop,
 						else
-							m_agent.SetDestination(m_coop.transform.position);
+							m_agent.SetDestination(NestPosition(m_coop.transform));
 					}
 				}
 				//If scared or have an egg,
@@ -134,7 +134,16 @@ public class EnemyMovement : MonoBehaviour
 					//go on the hunt
 					Nest closestNest = ClosestNest();
 					if (closestNest != null)
-						m_agent.SetDestination(closestNest.transform.position);
+					{
+						bool closerThanCoop = Vector3.Distance(closestNest.transform.position, transform.position) < Vector3.Distance(m_coop.transform.position, transform.position);
+
+						if (closerThanCoop)
+							m_agent.SetDestination(NestPosition(closestNest.transform));
+						else
+							m_agent.SetDestination(NestPosition(m_coop.transform));
+					}
+					else
+						m_agent.SetDestination(NestPosition(m_coop.transform));
 				}
 			}
 		}
@@ -182,12 +191,39 @@ public class EnemyMovement : MonoBehaviour
 
 		return closestNest;
 	}
+	private Vector3 NestPosition(Transform nestTransform)
+	{
+		Vector3 directionToFarmer = (transform.position - nestTransform.position).normalized;
+		return (nestTransform.position + directionToFarmer);	//Move the seek position a little close to farmer
+	}
 	private Vector3 FleePosition()
 	{
 		//Vector3 directionFromCenter = new Vector3(transform.position.x, 0.0f, transform.position.z);
 		//directionFromCenter.Normalize();
 		//return (directionFromCenter * 20);
-		int exit = Random.Range(0, m_exits.Length);
-		return m_exits[exit].transform.position;
+
+		//int exit = Random.Range(0, m_exits.Length);
+
+		bool first = true;
+		GameObject closestExit = null;
+		float closestDistance = 0;
+		foreach (GameObject exit in m_exits)
+		{
+			float distance = Vector3.Distance(exit.transform.position, transform.position);
+
+			if (first)
+			{
+				closestDistance = distance;
+				closestExit = exit;
+				first = false;
+			}
+			else if (distance < closestDistance)
+			{
+				closestDistance = distance;
+				closestExit = exit;
+			}
+		}
+
+		return closestExit.transform.position;
 	}
 }
