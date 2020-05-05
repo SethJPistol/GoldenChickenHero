@@ -20,14 +20,19 @@ public class Chicken : MonoBehaviour
 
     private bool m_HasEgg = false;
     private GameObject m_AttachedEgg = null;
-    // Start is called before the first frame update
-    void Start()
+
+	private Animator m_animator;
+
+	// Start is called before the first frame update
+	void Start()
     {
         Rigidbody r = GetComponent<Rigidbody>();
         if(r)
         {
             r.freezeRotation = true;
         }
+
+		m_animator = GetComponent<Animator>();
 
 		m_cluckTimer = 5.0f;
 	}
@@ -175,7 +180,9 @@ public class Chicken : MonoBehaviour
 				//Regardless of whether hit anything or not, play peck sound
 				peckSound.Play();
 				m_cluckTimer = 5.0f;
-            }
+
+				m_animator.SetTrigger("peck");
+			}
         }
         //---------------------------------------------------------------------------------------------------------------------------
         
