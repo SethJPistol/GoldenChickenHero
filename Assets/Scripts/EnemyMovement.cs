@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
 {
 	public Transform handPosition;
 
+	public AudioSource eggPickupSound;
+
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
 	private Coop m_coop;
@@ -58,6 +60,8 @@ public class EnemyMovement : MonoBehaviour
 									m_agent.SetDestination(FleePosition());
 									m_egg.transform.position = handPosition.position;
 									m_egg.transform.SetParent(handPosition);
+
+									eggPickupSound.Play();
 								}
 								else
 									m_agent.SetDestination(NestPosition(closestNest.transform));
@@ -78,6 +82,8 @@ public class EnemyMovement : MonoBehaviour
 									m_agent.SetDestination(FleePosition());
 									m_egg.transform.position = handPosition.position;
 									m_egg.transform.SetParent(handPosition);
+
+									eggPickupSound.Play();
 								}
 								else
 									m_agent.SetDestination(NestPosition(m_coop.transform));
@@ -99,6 +105,8 @@ public class EnemyMovement : MonoBehaviour
 								m_agent.SetDestination(FleePosition());
 								m_egg.transform.position = handPosition.position;
 								m_egg.transform.SetParent(handPosition);
+
+								eggPickupSound.Play();
 							}
 							else
 								m_agent.SetDestination(NestPosition(m_coop.transform));

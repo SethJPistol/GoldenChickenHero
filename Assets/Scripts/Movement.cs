@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
     private Rigidbody m_Rigidbody;
     [SerializeField] private float m_Speed = 0;
     [SerializeField] private ForceMode m_ForceMode = 0;
+
+	public AudioSource footstepSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +27,12 @@ public class Movement : MonoBehaviour
         {
             m_Rigidbody.AddForce(direction * m_Speed *Time.fixedDeltaTime,m_ForceMode);
             m_Rigidbody.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+
+			footstepSound.volume = 1.0f;
         }
-    }
+		else
+			footstepSound.volume = 0.0f;
+	}
 
     // Update is called once per frame
     void Update()

@@ -14,6 +14,10 @@ public class Chicken : MonoBehaviour
     [SerializeField] KeyCode m_PickupButton = KeyCode.Space;
     [SerializeField] KeyCode m_AttackButton = KeyCode.Mouse0;
 
+	public AudioSource randomCluckSound;
+	private float m_cluckTimer;
+	public AudioSource peckSound;
+
     private bool m_HasEgg = false;
     private GameObject m_AttachedEgg = null;
     // Start is called before the first frame update
@@ -24,14 +28,22 @@ public class Chicken : MonoBehaviour
         {
             r.freezeRotation = true;
         }
-    }
+
+		m_cluckTimer = 5.0f;
+	}
 
     // Update is called once per frame
     void Update()
     {
-        
-     
-    }
+		if (m_cluckTimer > 0.0f)
+			m_cluckTimer -= Time.deltaTime;
+		else
+		{
+			randomCluckSound.pitch = Random.Range(0.8f, 1.2f);
+			randomCluckSound.Play();
+			m_cluckTimer = 5.0f;
+		}
+	}
 
     //--------------------------------------------DROPPING--------EGGS--------------------------------------------------------------------------
     private void OnTriggerEnter(Collider other)
@@ -154,7 +166,8 @@ public class Chicken : MonoBehaviour
                 }
 
 
-
+				//Regardless of whether hit anything or not, play peck sound
+				peckSound.Play();
             }
         }
         //---------------------------------------------------------------------------------------------------------------------------
