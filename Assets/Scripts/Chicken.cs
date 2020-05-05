@@ -18,7 +18,6 @@ public class Chicken : MonoBehaviour
 	private float m_cluckTimer;
 	public AudioSource peckSound;
 
-    private bool m_HasEgg = false;
     private GameObject m_AttachedEgg = null;
 
 	private Animator m_animator;
@@ -58,23 +57,20 @@ public class Chicken : MonoBehaviour
         //If the trigger is a coop
         if(otherObject.tag == "Coop")
         {
-            // and the player has an egg
-            if(m_HasEgg)
-            {
-                if(m_AttachedEgg)
-                {
+          
+              if(m_AttachedEgg)
+              {
 					Coop coop = otherObject.GetComponent<Coop>();
 					coop.AddEgg(m_AttachedEgg);
 					m_AttachedEgg = null;
-                    m_HasEgg = false;
 
-                }
-                else
-                {
-                    Debug.Log("Attached Egg reference is null");
-                }
+              }
+              else
+              {
+                  Debug.Log("Attached Egg reference is null");
+              }
 
-            }
+           
 
         }
     }
@@ -87,7 +83,7 @@ public class Chicken : MonoBehaviour
         //If the pickup button is pressed
         if (Input.GetKeyDown(m_PickupButton))
         {
-            if (!m_HasEgg)
+            if (!m_AttachedEgg)
             {
                 //Do a spherecast from the player outwards
                 //Physics.SphereCast(transform.position + m_OriginOffset,m_Radius,transform.forward, out hit, m_Distance);
@@ -123,9 +119,6 @@ public class Chicken : MonoBehaviour
 
 
 
-
-                            //Set has egg to true
-                            m_HasEgg = true;
                         }
                     }
                 }
@@ -141,7 +134,7 @@ public class Chicken : MonoBehaviour
         //---------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKeyDown(m_AttackButton))
         {
-            if (!m_HasEgg)
+            if (!m_AttachedEgg)
             {
                 //Do a spherecast
                 // Physics.SphereCast(transform.position + m_OriginOffset, m_Radius, transform.forward, out hit, m_Distance);
@@ -165,7 +158,6 @@ public class Chicken : MonoBehaviour
                             {
                                 m_AttachedEgg.transform.position = m_HoldTransform.position;
                                 m_AttachedEgg.transform.SetParent(m_HoldTransform);
-                                m_HasEgg = true;
                             }
                            
                             //Debug.Log("Stole egg");
