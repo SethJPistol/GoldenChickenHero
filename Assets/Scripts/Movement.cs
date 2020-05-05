@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
 		//magnitude can't be negative, use 0.0001 to hopefully avoid any floating point error stuff
 		if (direction.magnitude > 0.0001f)
 		{
-			m_Rigidbody.AddForce(direction * m_Speed * Time.fixedDeltaTime, m_ForceMode);
+			m_Rigidbody.AddForce(direction.normalized * m_Speed * Time.fixedDeltaTime, m_ForceMode);
 			m_Rigidbody.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
 			m_animator.SetBool("running", true);
