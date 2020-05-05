@@ -156,9 +156,15 @@ public class Chicken : MonoBehaviour
                         {
                             //Call Scare function
                             m_AttachedEgg = other.GetComponent<EnemyMovement>().Scare();
-                            m_AttachedEgg.transform.position = m_HoldTransform.position;
-                            m_AttachedEgg.transform.SetParent(m_HoldTransform);
-                            m_HasEgg = true;
+
+                            //If the scare() didn't return null
+                            if(m_AttachedEgg)
+                            {
+                                m_AttachedEgg.transform.position = m_HoldTransform.position;
+                                m_AttachedEgg.transform.SetParent(m_HoldTransform);
+                                m_HasEgg = true;
+                            }
+                           
                             //Debug.Log("Stole egg");
                         }
 
