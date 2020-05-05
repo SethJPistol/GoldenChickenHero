@@ -152,7 +152,7 @@ Transform:
   - {fileID: 840213460}
   - {fileID: 471591203}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &112793372 stripped
 Transform:
@@ -376,7 +376,7 @@ Transform:
   - {fileID: 827863992}
   - {fileID: 840891576}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471591202
 GameObject:
@@ -539,36 +539,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4e9a30ebd56544886a3a85de89be6f, type: 3}
---- !u!1 &728583539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 728583540}
-  m_Layer: 0
-  m_Name: Chicken Hero
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &728583540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728583539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.280716, y: 69.93508, z: -35.957573}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &732732169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,7 +589,7 @@ PrefabInstance:
     - target: {fileID: 6015887997758591595, guid: 357dd5408f4f4594ba93ef7e6f1cc74a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6015887997758591595, guid: 357dd5408f4f4594ba93ef7e6f1cc74a,
         type: 3}
@@ -904,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 7257935828947732309, guid: 9a298e6834d14a64695c0384f0d963e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7257935828947732309, guid: 9a298e6834d14a64695c0384f0d963e5,
         type: 3}
@@ -2020,6 +1990,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104877082, guid: bbdca5ec4ef1bd044a239cf40580d114, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: f8d75a696ad16954f8d135d5f4418623, type: 3}
     - target: {fileID: 1373143831149460195, guid: bbdca5ec4ef1bd044a239cf40580d114,
         type: 3}
       propertyPath: m_LocalPosition.x
