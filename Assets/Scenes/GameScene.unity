@@ -470,12 +470,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471591202}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &511481547 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2297816380945710728, guid: bbdca5ec4ef1bd044a239cf40580d114,
-    type: 3}
-  m_PrefabInstance: {fileID: 1373143831257001471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &607999292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,6 +539,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4e9a30ebd56544886a3a85de89be6f, type: 3}
+--- !u!1 &728583539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728583540}
+  m_Layer: 0
+  m_Name: Chicken Hero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728583540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728583539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 53.280716, y: 69.93508, z: -35.957573}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &732732169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,11 +2020,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1373143831149460193, guid: bbdca5ec4ef1bd044a239cf40580d114,
-        type: 3}
-      propertyPath: m_HoldTransform
-      value: 
-      objectReference: {fileID: 511481547}
     - target: {fileID: 1373143831149460195, guid: bbdca5ec4ef1bd044a239cf40580d114,
         type: 3}
       propertyPath: m_LocalPosition.x
