@@ -120,13 +120,13 @@ public class EnemyMovement : MonoBehaviour
 				if (m_scared)
 				{
 					//aaaaaa
-					gameObject.SetActive(false);
+					Destroy(gameObject);
 				}
 				//If have an egg,
 				else if (m_egg != null)
 				{
 					//hehehehe stole the egg
-					gameObject.SetActive(false);
+					Destroy(gameObject);
 				}
 				//If don't have an egg
 				else
