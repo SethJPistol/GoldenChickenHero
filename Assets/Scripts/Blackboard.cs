@@ -50,7 +50,7 @@ public class Blackboard : MonoBehaviour
         if(m_CountText)
         {
             //Set the text
-            m_CountText.text = "Eggs Total: " +  m_EggCount.ToString();
+            m_CountText.text = m_EggCount.ToString();
         }
         //If it has been one second
         if(m_Timer >= 1.0f)
