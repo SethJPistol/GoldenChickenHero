@@ -9,9 +9,12 @@ public class EnemyMovement : MonoBehaviour
 
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
+	private Coop m_coop;
 
 	private GameObject m_egg = null;
 	private bool m_scared = false;
+
+	private float m_pickupDistance = 4.0f;
 
     void Start()
     {
@@ -21,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 		m_nests = new Nest[nestObjects.Length];
 		for (int i = 0; i < nestObjects.Length; ++i)
 			m_nests[i] = nestObjects[i].GetComponent<Nest>();
+
+		m_coop = GameObject.FindGameObjectWithTag("Coop").GetComponent<Coop>();
 	}
 
     void Update()
@@ -30,16 +35,62 @@ public class EnemyMovement : MonoBehaviour
 			//If inside the level,
 			if (LevelBounds.InsideLevel(transform.position))
 			{
-				if (!m_scared)
+				if (!m_scared && !m_egg)
 				{
 					Nest closestNest = ClosestNest();
 
+					//If there is a nest with an egg
 					if (closestNest != null)
 					{
-						//If at a nest,
-						if (Vector3.Distance(closestNest.transform.position, transform.position) < 2.0f)
+						bool closerThanCoop = Vector3.Distance(closestNest.transform.position, transform.position) < Vector3.Distance(m_coop.transform.position, transform.position);
+
+						if (closerThanCoop)
 						{
-							m_egg = closestNest.TakeEgg();
+							//If at the nest,
+							if (Vector3.Distance(closestNest.transform.position, transform.position) < m_pickupDistance)
+							{
+								m_egg = closestNest.TakeEgg();
+								if (m_egg != null)
+								{
+									m_agent.SetDestination(FleePosition());
+									m_egg.transform.position = handPosition.position;
+									m_egg.transform.SetParent(handPosition);
+								}
+								else
+									m_agent.SetDestination(closestNest.transform.position);
+							}
+							//If not at the nest
+							else
+								m_agent.SetDestination(closestNest.transform.position);
+						}
+						//If the coop is closer,
+						else
+						{
+							//If at the coop,
+							if (Vector3.Distance(m_coop.transform.position, transform.position) < m_pickupDistance)
+							{
+								m_egg = m_coop.TakeEgg();
+								if (m_egg != null)
+								{
+									m_agent.SetDestination(FleePosition());
+									m_egg.transform.position = handPosition.position;
+									m_egg.transform.SetParent(handPosition);
+								}
+								else
+									m_agent.SetDestination(m_coop.transform.position);
+							}
+							//If not at the coop,
+							else
+								m_agent.SetDestination(m_coop.transform.position);
+						}
+					}
+					//If there is no nest with an egg,
+					else
+					{
+						//If at the coop,
+						if (Vector3.Distance(m_coop.transform.position, transform.position) < m_pickupDistance)
+						{
+							m_egg = m_coop.TakeEgg();
 							if (m_egg != null)
 							{
 								m_agent.SetDestination(FleePosition());
@@ -47,11 +98,11 @@ public class EnemyMovement : MonoBehaviour
 								m_egg.transform.SetParent(handPosition);
 							}
 							else
-								m_agent.SetDestination(closestNest.transform.position);
+								m_agent.SetDestination(m_coop.transform.position);
 						}
-						//If not at a nest
+						//If not at the coop,
 						else
-							m_agent.SetDestination(closestNest.transform.position);
+							m_agent.SetDestination(m_coop.transform.position);
 					}
 				}
 			}
@@ -125,7 +176,8 @@ public class EnemyMovement : MonoBehaviour
 	}
 	private Vector3 FleePosition()
 	{
-		Vector3 directionFromCenter = transform.position.normalized;
+		Vector3 directionFromCenter = new Vector3(transform.position.x, 0.0f, transform.position.z);
+		directionFromCenter.Normalize();
 		return (directionFromCenter * 30);
 	}
 }
