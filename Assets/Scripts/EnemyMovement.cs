@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
 	private Coop m_coop;
+	private GameObject[] m_exits;
 
 	private GameObject m_egg = null;
 	private bool m_scared = false;
@@ -26,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
 			m_nests[i] = nestObjects[i].GetComponent<Nest>();
 
 		m_coop = GameObject.FindGameObjectWithTag("Coop").GetComponent<Coop>();
+
+		m_exits = GameObject.FindGameObjectsWithTag("Exit");
 	}
 
     void Update()
@@ -105,6 +108,11 @@ public class EnemyMovement : MonoBehaviour
 							m_agent.SetDestination(m_coop.transform.position);
 					}
 				}
+				//If scared or have an egg,
+				else
+				{
+					m_agent.SetDestination(FleePosition());
+				}
 			}
 			//If outside the level,
 			else
@@ -176,8 +184,10 @@ public class EnemyMovement : MonoBehaviour
 	}
 	private Vector3 FleePosition()
 	{
-		Vector3 directionFromCenter = new Vector3(transform.position.x, 0.0f, transform.position.z);
-		directionFromCenter.Normalize();
-		return (directionFromCenter * 30);
+		//Vector3 directionFromCenter = new Vector3(transform.position.x, 0.0f, transform.position.z);
+		//directionFromCenter.Normalize();
+		//return (directionFromCenter * 20);
+		int exit = Random.Range(0, m_exits.Length);
+		return m_exits[exit].transform.position;
 	}
 }
