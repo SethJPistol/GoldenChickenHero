@@ -174,6 +174,7 @@ public class Chicken : MonoBehaviour
 
 				//Regardless of whether hit anything or not, play peck sound
 				peckSound.Play();
+				m_cluckTimer = 5.0f;
             }
         }
         //---------------------------------------------------------------------------------------------------------------------------
