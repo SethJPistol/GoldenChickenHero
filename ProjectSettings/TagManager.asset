@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Nest
   - Farmer
+  - Coop
   layers:
   - Default
   - TransparentFX

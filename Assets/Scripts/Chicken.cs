@@ -4,11 +4,9 @@ using UnityEngine;
 public class Chicken : MonoBehaviour
 {
 
-    //Where to start the spherecast relative to the position of the chicken
-    [SerializeField] Vector3 m_OriginOffset = new Vector3(0,0,0);
 
     //Position of the egg, when picked up by the chicken
-   // [SerializeField] Vector3 m_EggPosition = new Vector3(0, 0, 0);
+    [SerializeField] Transform m_HoldTransform;
 
     //The radius of the sphere cast
     [SerializeField] float m_Radius = 1.0f;
@@ -44,12 +42,22 @@ public class Chicken : MonoBehaviour
             // and the player has an egg
             if(m_HasEgg)
             {
-                //Not sure if this will work, NEEDS TESTING!!!
-                m_AttachedEgg.transform.SetParent(null);
+                if(m_AttachedEgg)
+                {
+                    //Not sure if this will work, NEEDS TESTING!!!
+                    m_AttachedEgg.transform.SetParent(null);
 
-                //Add to the counter on the blackboard
-                Blackboard.m_Instance.SetEggCounter(Blackboard.m_Instance.GetEggCounter() + 1);
+                    //Add to the counter on the blackboard
+                    Blackboard.m_Instance.SetEggCounter(Blackboard.m_Instance.GetEggCounter() + 1);
+
+                }
+                else
+                {
+                    Debug.Log("Attached Egg reference is null");
+                }
+
             }
+
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -64,43 +72,48 @@ public class Chicken : MonoBehaviour
         if (Input.GetKeyDown(m_PickupButton))
         {
             //Do a spherecast from the player outwards
-            Physics.SphereCast(transform.position + m_OriginOffset,m_Radius,transform.forward, out hit, m_Distance);
-
-
-            //If other exists
-            if (hit.collider)
+            //Physics.SphereCast(transform.position + m_OriginOffset,m_Radius,transform.forward, out hit, m_Distance);
+            Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward, m_Radius);
+            for (int i = 0; i < colliders.Length; i++)
             {
-            //Get the gameobject of object hit
-            GameObject other = hit.collider.gameObject;
-                //And it is a nest
-                if (other.tag == "Nest")
+                //If other exists
+                if (colliders[i])
                 {
+                    //Get the gameobject of object hit
+                    GameObject other = colliders[i].gameObject;
+                    //And it is a nest
+                    if (other.tag == "Nest")
+                    {
+
+
+                        //Get nest script
+                        Nest n = other.GetComponent<Nest>();
+
+                        //Finish section of code when nest code is completed
+                        //--------------------------------------------------------------
+
+                        //Get reference to the egg
+                        m_AttachedEgg = n.TakeEgg();
+                        //--------------------------------------------------------------
+
+                        if (m_AttachedEgg)
+                        {
+                            m_AttachedEgg.transform.position = m_HoldTransform.position;
+
+                            //Parent the egg to this 
+                            m_AttachedEgg.transform.SetParent(m_HoldTransform);
+                        }
+
 
                    
-                    //Get nest script
-                    Nest n = other.GetComponent<Nest>();
 
-                    //Finish section of code when nest code is completed
-                    //--------------------------------------------------------------
-
-                    //Get reference to the egg
-                    m_AttachedEgg = n.TakeEgg();
-                    //--------------------------------------------------------------
-
-                    if(m_AttachedEgg)
-                    {
-                         //Parent the egg to this 
-                         m_AttachedEgg.transform.SetParent(transform);
+                        //Set has egg to true
+                        m_HasEgg = true;
                     }
-                    
-                    
-                    //Move the egg
-                  //  m_AttachedEgg.transform.position = m_EggPosition;
-
-                    //Set has egg to true
-                    m_HasEgg = true;
                 }
             }
+           
+           
 
         }
 
@@ -113,23 +126,36 @@ public class Chicken : MonoBehaviour
             if (!m_HasEgg)
             {
                 //Do a spherecast
-                Physics.SphereCast(transform.position + m_OriginOffset, m_Radius, transform.forward, out hit, m_Distance);
+               // Physics.SphereCast(transform.position + m_OriginOffset, m_Radius, transform.forward, out hit, m_Distance);
+                // Debug.DrawRay(transform.position + m_OriginOffset, transform.forward * m_Distance, Color.blue,10);
 
-                //If the collider exist (meaning it hit something)
-                if (hit.collider)
+                Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward, m_Radius);
+                for (int i = 0; i < colliders.Length; i++)
                 {
-                    GameObject other = hit.collider.gameObject;
-
-                    if (other.tag == "Farmer")
+                    //If the collider exist (meaning it hit something)
+                    if (colliders[i])
                     {
-                        //Call Scare function
-                        other.GetComponent<EnemyMovement>().Scare();
-                    }
+                        GameObject other = colliders[i].gameObject;
 
+                        if (other.tag == "Farmer")
+                        {
+                            //Call Scare function
+                            other.GetComponent<EnemyMovement>().Scare();
+                        }
+
+                    }
                 }
+
+
+               
             }
         }
         //---------------------------------------------------------------------------------------------------------------------------
 
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position + transform.forward,m_Radius);
     }
 }
