@@ -63,11 +63,9 @@ public class Chicken : MonoBehaviour
             {
                 if(m_AttachedEgg)
                 {
-                    //Not sure if this will work, NEEDS TESTING!!!
-                    m_AttachedEgg.transform.SetParent(null);
-
-                    //Add to the counter on the blackboard
-                    Blackboard.m_Instance.SetEggCounter(Blackboard.m_Instance.GetEggCounter() + 1);
+					Coop coop = otherObject.GetComponent<Coop>();
+					coop.AddEgg(m_AttachedEgg);
+					m_AttachedEgg = null;
                     m_HasEgg = false;
 
                 }
