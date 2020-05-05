@@ -2080,5 +2080,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenHero
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 104877075, guid: bbdca5ec4ef1bd044a239cf40580d114, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bbdca5ec4ef1bd044a239cf40580d114, type: 3}
