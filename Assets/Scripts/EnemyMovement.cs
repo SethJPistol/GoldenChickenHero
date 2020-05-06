@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
 	public AudioSource whistling;
 
 	private NavMeshAgent m_agent;
+	private Animator m_animator;
 	private Nest[] m_nests;
 	private Coop m_coop;
 	private GameObject[] m_exits;
@@ -24,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
 		m_agent = GetComponent<NavMeshAgent>();
+		m_animator = GetComponent<Animator>();
 
 		GameObject[] nestObjects = GameObject.FindGameObjectsWithTag("Nest");
 		m_nests = new Nest[nestObjects.Length];
@@ -37,7 +39,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (!m_agent.hasPath)
+		//m_animator.SetBool("scared", m_scared);
+		m_animator.SetBool("hasEgg", (m_egg != null));
+
+		if (!m_agent.hasPath)
 		{
 			//If inside the level,
 			if (LevelBounds.InsideLevel(transform.position))
@@ -62,6 +67,7 @@ public class EnemyMovement : MonoBehaviour
 									m_agent.SetDestination(FleePosition());
 									m_egg.SetActive(false);
 
+									m_animator.SetTrigger("pickup");
 									eggPickupSound.Play();
 								}
 								else
@@ -83,6 +89,7 @@ public class EnemyMovement : MonoBehaviour
 									m_agent.SetDestination(FleePosition());
 									m_egg.SetActive(false);
 
+									m_animator.SetTrigger("pickup");
 									eggPickupSound.Play();
 								}
 								else
@@ -105,6 +112,7 @@ public class EnemyMovement : MonoBehaviour
 								m_agent.SetDestination(FleePosition());
 								m_egg.SetActive(false);
 
+								m_animator.SetTrigger("pickup");
 								eggPickupSound.Play();
 							}
 							else
