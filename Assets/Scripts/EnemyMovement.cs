@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 	public Transform handPosition;
 
 	public AudioSource eggPickupSound;
+	public AudioSource whistling;
 
 	private NavMeshAgent m_agent;
 	private Nest[] m_nests;
@@ -161,6 +162,8 @@ public class EnemyMovement : MonoBehaviour
 	{
 		m_agent.SetDestination(FleePosition());
 		m_scared = true;
+
+		whistling.Stop();
 
 		if (m_egg != null)
 		{
