@@ -6897,16 +6897,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nest
       objectReference: {fileID: 0}
-    - target: {fileID: 2004740789997394972, guid: 8a4e9a30ebd56544886a3a85de89be6f,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004740789997394972, guid: 8a4e9a30ebd56544886a3a85de89be6f,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4e9a30ebd56544886a3a85de89be6f, type: 3}
 --- !u!1001 &2089859378
