@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-	public Transform handPosition;
+	//public Transform handPosition;
 
 	public AudioSource eggPickupSound;
 	public AudioSource whistling;
@@ -60,8 +60,7 @@ public class EnemyMovement : MonoBehaviour
 								if (m_egg != null)
 								{
 									m_agent.SetDestination(FleePosition());
-									m_egg.transform.position = handPosition.position;
-									m_egg.transform.SetParent(handPosition);
+									m_egg.SetActive(false);
 
 									eggPickupSound.Play();
 								}
@@ -82,8 +81,7 @@ public class EnemyMovement : MonoBehaviour
 								if (m_egg != null)
 								{
 									m_agent.SetDestination(FleePosition());
-									m_egg.transform.position = handPosition.position;
-									m_egg.transform.SetParent(handPosition);
+									m_egg.SetActive(false);
 
 									eggPickupSound.Play();
 								}
@@ -105,8 +103,7 @@ public class EnemyMovement : MonoBehaviour
 							if (m_egg != null)
 							{
 								m_agent.SetDestination(FleePosition());
-								m_egg.transform.position = handPosition.position;
-								m_egg.transform.SetParent(handPosition);
+								m_egg.SetActive(false);
 
 								eggPickupSound.Play();
 							}
@@ -172,6 +169,7 @@ public class EnemyMovement : MonoBehaviour
 
 		if (m_egg != null)
 		{
+			m_egg.SetActive(true);
 			GameObject egg = m_egg;
 			m_egg = null;
 			return egg;
