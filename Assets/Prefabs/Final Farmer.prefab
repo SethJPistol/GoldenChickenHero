@@ -125,7 +125,6 @@ MonoBehaviour:
   handPosition: {fileID: 0}
   eggPickupSound: {fileID: 0}
   whistling: {fileID: 0}
-  m_Exclamation: {fileID: 6877832268841760048}
 --- !u!195 &4574543373530825966
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -155,6 +154,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: f463e6cc5179cb24bbe5b47def7e188b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 48d486537633fb94eb639d1b11a514bb, type: 2}
     - target: {fileID: -4216859302048453862, guid: f463e6cc5179cb24bbe5b47def7e188b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +213,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: f463e6cc5179cb24bbe5b47def7e188b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: f463e6cc5179cb24bbe5b47def7e188b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: f463e6cc5179cb24bbe5b47def7e188b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f463e6cc5179cb24bbe5b47def7e188b,
         type: 3}
