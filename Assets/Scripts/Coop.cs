@@ -6,6 +6,10 @@ public class Coop : MonoBehaviour
 {
 	public GameObject eggPrefab;
 	public Transform coopTop;
+
+	public AudioSource eggDropSound;
+	public AudioSource pickupEggSound;
+
 	private List<GameObject> m_eggs;
 
 	private void Start()
@@ -20,6 +24,8 @@ public class Coop : MonoBehaviour
 		egg.transform.SetParent(null);
 		egg.GetComponent<Rigidbody>().isKinematic = false;
 		m_eggs.Add(egg);
+
+		eggDropSound.Play();
 	}
 
 	public GameObject TakeEgg()
@@ -34,6 +40,9 @@ public class Coop : MonoBehaviour
 				m_eggs[eggIndex].transform.rotation = Quaternion.identity;
 				GameObject egg = m_eggs[eggIndex];
 				m_eggs.RemoveAt(eggIndex);
+
+				pickupEggSound.Play();
+
 				return egg;
 			}
 		}

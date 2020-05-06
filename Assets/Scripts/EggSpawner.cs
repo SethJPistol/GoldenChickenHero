@@ -45,7 +45,7 @@ public class EggSpawner : MonoBehaviour
 			{
 				if (!m_nests[randomNest].hasEgg)
 				{
-					m_nests[randomNest].MakeEgg();
+					m_nests[randomNest].MakeEgg(true);
 					return;
 				}
 				nestChecked[randomNest] = true;
