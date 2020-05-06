@@ -8433,6 +8433,26 @@ PrefabInstance:
       propertyPath: m_HoldTransform
       value: 
       objectReference: {fileID: 1751844967}
+    - target: {fileID: 6110011352534233661, guid: 63f1ea6b9a14a644badfe27f901e64ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110011352534233661, guid: 63f1ea6b9a14a644badfe27f901e64ec,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110011352534233661, guid: 63f1ea6b9a14a644badfe27f901e64ec,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110011352534233661, guid: 63f1ea6b9a14a644badfe27f901e64ec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8081023925316848879, guid: 63f1ea6b9a14a644badfe27f901e64ec,
         type: 3}
       propertyPath: m_Name
