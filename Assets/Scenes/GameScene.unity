@@ -1992,6 +1992,8 @@ MonoBehaviour:
   eggPrefab: {fileID: 5968243929638466090, guid: d58b01848bb0a1542bcb3e93c867e985,
     type: 3}
   coopTop: {fileID: 714669796}
+  eggDropSound: {fileID: 0}
+  pickupEggSound: {fileID: 0}
 --- !u!4 &832264072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2100753162763147975, guid: d1a0bac65669b8840b489cc86f073eaa,
@@ -3419,7 +3421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2896b4d02677b4b9188bc75062e068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  farmerPrefab: {fileID: 7257935828947732334, guid: 9a298e6834d14a64695c0384f0d963e5,
+  farmerPrefab: {fileID: 8582994954676211151, guid: 67fac81265fba6b429948023fda564d0,
     type: 3}
   farmerSpawnTime: 5
   maxFarmerAmount: 4
