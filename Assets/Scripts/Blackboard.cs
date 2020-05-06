@@ -86,8 +86,12 @@ public class Blackboard : MonoBehaviour
         if(m_TimeLeft <= 0)
         {
             m_EndGameUI.SetActive(true);
-            Text t = m_EndCountText.GetComponent<Text>();
-            t.text = "Eggs Protected: \r\n" + m_EggCount;
+            if(m_EndCountText)
+            {
+             Text t = m_EndCountText.GetComponent<Text>();
+             t.text = "Eggs Protected: \r\n" + m_EggCount;
+
+            }
             Time.timeScale = 0;
         }
     }

@@ -13,7 +13,8 @@ public class Chicken : MonoBehaviour
 
     [SerializeField] KeyCode m_PickupButton = KeyCode.Space;
     [SerializeField] KeyCode m_AttackButton = KeyCode.Mouse0;
-
+    [SerializeField] GameObject m_AttackParticleObject;
+    ParticleSystem m_AttackParticleSystem;
 	public AudioSource randomCluckSound;
 	private float m_cluckTimer;
 	public AudioSource peckSound;
@@ -34,7 +35,9 @@ public class Chicken : MonoBehaviour
 		m_animator = GetComponent<Animator>();
 
 		m_cluckTimer = 5.0f;
-	}
+        m_AttackParticleSystem = m_AttackParticleObject.GetComponent<ParticleSystem>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -134,6 +137,10 @@ public class Chicken : MonoBehaviour
         //---------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKeyDown(m_AttackButton))
         {
+            if(m_AttackParticleSystem)
+            {
+                m_AttackParticleSystem.Play();
+            }
             if (!m_AttachedEgg)
             {
                 //Do a spherecast
