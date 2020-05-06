@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
 	private float m_pickupDistance = 4.0f;
 
+	[SerializeField] private ParticleSystem m_Exclamation;
     void Start()
     {
 		m_agent = GetComponent<NavMeshAgent>();
@@ -160,6 +161,10 @@ public class EnemyMovement : MonoBehaviour
 
 	public GameObject Scare()
 	{
+		if(m_Exclamation)
+		{
+			m_Exclamation.Play();
+		}
 		m_agent.SetDestination(FleePosition());
 		m_scared = true;
 
