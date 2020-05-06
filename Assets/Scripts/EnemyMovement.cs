@@ -39,7 +39,6 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-		//m_animator.SetBool("scared", m_scared);
 		m_animator.SetBool("hasEgg", (m_egg != null));
 
 		if (!m_agent.hasPath)
@@ -174,6 +173,9 @@ public class EnemyMovement : MonoBehaviour
 		m_scared = true;
 
 		whistling.Stop();
+
+		//m_animator.SetTrigger("scared");
+		m_animator.SetBool("hasEgg", false);
 
 		if (m_egg != null)
 		{
