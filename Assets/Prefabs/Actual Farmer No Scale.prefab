@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eggPickupSound: {fileID: 9139957256316237060}
   whistling: {fileID: 509953675841937290}
-  m_Exclamation: {fileID: 0}
+  m_Exclamation: {fileID: 4086561765874895044}
 --- !u!195 &6569617564244118230
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -342,4 +342,85 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: e9cd68c2ca2bdf2479d5ea1db170db21,
     type: 3}
   m_PrefabInstance: {fileID: 2742974319444461011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7164017900084801225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e9cd68c2ca2bdf2479d5ea1db170db21,
+    type: 3}
+  m_PrefabInstance: {fileID: 2742974319444461011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3520833327145918615
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7164017900084801225}
+    m_Modifications:
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715090, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606544522268715093, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+        type: 3}
+      propertyPath: m_Name
+      value: Exclamation_ParticleEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45, type: 3}
+--- !u!198 &4086561765874895044 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 606544522268715091, guid: 77f7b0fa8e8527c45b9b4b74a8a48a45,
+    type: 3}
+  m_PrefabInstance: {fileID: 3520833327145918615}
   m_PrefabAsset: {fileID: 0}
