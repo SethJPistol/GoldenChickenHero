@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-	public Transform handPosition;
+	//public Transform handPosition;
 
 	public AudioSource eggPickupSound;
 	public AudioSource whistling;
@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
 	private float m_pickupDistance = 4.0f;
 
+	[SerializeField] private ParticleSystem m_Exclamation;
     void Start()
     {
 		m_agent = GetComponent<NavMeshAgent>();
@@ -59,8 +60,7 @@ public class EnemyMovement : MonoBehaviour
 								if (m_egg != null)
 								{
 									m_agent.SetDestination(FleePosition());
-									m_egg.transform.position = handPosition.position;
-									m_egg.transform.SetParent(handPosition);
+									m_egg.SetActive(false);
 
 									eggPickupSound.Play();
 								}
@@ -81,8 +81,7 @@ public class EnemyMovement : MonoBehaviour
 								if (m_egg != null)
 								{
 									m_agent.SetDestination(FleePosition());
-									m_egg.transform.position = handPosition.position;
-									m_egg.transform.SetParent(handPosition);
+									m_egg.SetActive(false);
 
 									eggPickupSound.Play();
 								}
@@ -104,8 +103,7 @@ public class EnemyMovement : MonoBehaviour
 							if (m_egg != null)
 							{
 								m_agent.SetDestination(FleePosition());
-								m_egg.transform.position = handPosition.position;
-								m_egg.transform.SetParent(handPosition);
+								m_egg.SetActive(false);
 
 								eggPickupSound.Play();
 							}
@@ -160,6 +158,10 @@ public class EnemyMovement : MonoBehaviour
 
 	public GameObject Scare()
 	{
+		if(m_Exclamation)
+		{
+			m_Exclamation.Play();
+		}
 		m_agent.SetDestination(FleePosition());
 		m_scared = true;
 
@@ -167,6 +169,7 @@ public class EnemyMovement : MonoBehaviour
 
 		if (m_egg != null)
 		{
+			m_egg.SetActive(true);
 			GameObject egg = m_egg;
 			m_egg = null;
 			return egg;

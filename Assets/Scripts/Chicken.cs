@@ -137,10 +137,7 @@ public class Chicken : MonoBehaviour
         //---------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKeyDown(m_AttackButton))
         {
-            if(m_AttackParticleSystem)
-            {
-                m_AttackParticleSystem.Play();
-            }
+            
             if (!m_AttachedEgg)
             {
                 //Do a spherecast
@@ -179,7 +176,12 @@ public class Chicken : MonoBehaviour
 				m_cluckTimer = 5.0f;
 
 				m_animator.SetTrigger("peck");
-			}
+
+                if (m_AttackParticleSystem)
+                {
+                    m_AttackParticleSystem.Play();
+                }
+            }
         }
         //---------------------------------------------------------------------------------------------------------------------------
         
