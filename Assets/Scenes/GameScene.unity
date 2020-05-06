@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_TimerObject: {fileID: 1537598227}
   m_EggCountObject: {fileID: 2043314618}
   m_EndGameUI: {fileID: 2121250486}
-  m_EndCountText: {fileID: 1338655692}
+  m_EndCountText: {fileID: 0}
   m_TimeLeftMinutes: 1
 --- !u!4 &994218163
 Transform:
@@ -4531,12 +4531,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4844550299243818450, guid: 4d1d75baf07b81b43ae44341dcb17e57, type: 3}
---- !u!1 &1338655692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2160413276417459415, guid: bee7ad1219e062742b1554b306637bb6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2089859378}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1351268730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,25 +6714,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1918372456088003066, guid: bee7ad1219e062742b1554b306637bb6,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918372456088003066, guid: bee7ad1219e062742b1554b306637bb6,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918372456088003066, guid: bee7ad1219e062742b1554b306637bb6,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918372456088003066, guid: bee7ad1219e062742b1554b306637bb6,
-        type: 3}
-      propertyPath: m_Text
-      value: Congratulations!
+    - target: {fileID: 4865233030209281, guid: bee7ad1219e062742b1554b306637bb6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.40039
       objectReference: {fileID: 0}
     - target: {fileID: 3550418542209690091, guid: bee7ad1219e062742b1554b306637bb6,
         type: 3}
